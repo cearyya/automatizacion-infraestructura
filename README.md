@@ -380,3 +380,73 @@ Las pruebas realizadas confirman:
 * Comunicación APP → DB.
 * Destrucción y reconstrucción de la infraestructura.
 * Versionamiento mediante Git.
+
+---
+
+## 15. Introducción
+
+La automatización de infraestructura permite crear, configurar, verificar y
+eliminar servicios de manera reproducible mediante código. En este proyecto se
+aplican principios de infraestructura como código (IaC) y automatización para
+administrar una infraestructura basada en contenedores Docker.
+
+## 16. Problema identificado
+
+La configuración manual de servidores y servicios puede generar errores
+humanos, inconsistencias y mayor tiempo de despliegue. Además, cuando una
+infraestructura necesita ser reconstruida, realizar nuevamente todos los pasos
+manualmente resulta poco eficiente.
+
+Este proyecto busca solucionar este problema mediante Terraform, Docker,
+Ansible y scripts Bash, permitiendo que la infraestructura pueda desplegarse,
+verificarse y destruirse de forma automatizada y reproducible.
+
+## 17. DevOps aplicado
+
+El proyecto integra prácticas de DevOps mediante la automatización de las
+diferentes etapas de administración de la infraestructura:
+
+- Terraform para Infraestructura como Código (IaC).
+- Docker para la ejecución aislada de los servicios.
+- Ansible para la verificación y administración.
+- Bash para automatizar las operaciones principales.
+- Git para el control de versiones y seguimiento de cambios.
+
+Esta integración permite reducir tareas manuales y mantener una configuración
+reproducible.
+
+## 18. Ventajas de la automatización
+
+La automatización implementada proporciona las siguientes ventajas:
+
+- Reducción de errores humanos.
+- Despliegues reproducibles.
+- Mayor rapidez para crear la infraestructura.
+- Facilidad para destruir y reconstruir los servicios.
+- Configuración centralizada mediante código.
+- Verificación automatizada del estado y conectividad.
+- Historial de cambios mediante Git.
+
+La principal ventaja observada durante las pruebas fue la capacidad de
+reconstruir la infraestructura utilizando nuevamente los mismos archivos y
+comandos, sin configurar manualmente cada servicio.
+
+## 19. Conclusiones
+
+La implementación permitió comprobar que Terraform, Docker, Ansible, Bash y
+Git pueden integrarse para automatizar una infraestructura de servicios.
+
+Las pruebas realizadas demostraron que los contenedores WEB, APP y DB pueden
+ser desplegados y verificados correctamente, mantienen comunicación dentro de
+la red privada y pueden ser destruidos y reconstruidos mediante código.
+
+Por lo tanto, la automatización facilita la administración de la
+infraestructura, mejora la reproducibilidad y reduce el esfuerzo necesario
+para realizar nuevamente un despliegue.
+
+## 20. Repositorio
+
+El código fuente, documentación y evidencias del proyecto se encuentran
+disponibles en:
+
+https://github.com/cearyya/automatizacion-infraestructura
