@@ -1,0 +1,29 @@
+---
+- name: Verificar infraestructura Docker
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Consultar estado de infra-web
+      community.docker.docker_container_info:
+        name: infra-web
+      register: web_info
+
+    - name: Consultar estado de infra-app
+      community.docker.docker_container_info:
+        name: infra-app
+      register: app_info
+
+    - name: Consultar estado de infra-db
+      community.docker.docker_container_info:
+        name: infra-db
+      register: db_info
+
+    - name: Mostrar estado de los servicios
+      ansible.builtin.debug:
+        msg:
+          - "WEB: {{ web_info.container.State.Status }}"
+          - "APP: {{ app_info.container.State.Status }}"
+          - "DB: {{ db_info.container.State.Status }}"
+

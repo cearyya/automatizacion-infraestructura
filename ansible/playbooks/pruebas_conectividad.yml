@@ -1,0 +1,33 @@
+---
+- name: Probar conectividad entre servicios
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+
+    - name: Probar WEB hacia APP por HTTP
+      ansible.builtin.command:
+        cmd: docker exec infra-web wget -qO- http://10.10.0.20
+      register: web_to_app
+      changed_when: false
+
+    - name: Probar WEB hacia DB por TCP 3306
+      ansible.builtin.command:
+        cmd: docker exec infra-web sh -c "nc -zv 10.10.0.30 3306"
+      register: web_to_db
+      changed_when: false
+
+    - name: Probar APP hacia DB por TCP 3306
+      ansible.builtin.command:
+        cmd: docker exec infra-app sh -c "nc -zv 10.10.0.30 3306"
+      register: app_to_db
+      changed_when: false
+
+    - name: Mostrar resultados
+      ansible.builtin.debug:
+        msg:
+          - "WEB -> APP: CONECTADO"
+          - "WEB -> DB: CONECTADO"
+          - "APP -> DB: CONECTADO"
+

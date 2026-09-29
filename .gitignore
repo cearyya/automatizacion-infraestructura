@@ -1,0 +1,23 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+
+# Terraform lock file: se conserva para fijar versiones
+# .terraform.lock.hcl
+
+# Ansible
+*.retry
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+
