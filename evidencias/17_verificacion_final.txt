@@ -1,0 +1,69 @@
+========================================
+ VERIFICACIÓN DE INFRAESTRUCTURA
+========================================
+
+[1/4] Verificando Terraform...
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+
+[2/4] Verificando contenedores Docker...
+NAMES       STATUS         PORTS
+infra-web   Up 2 minutes   0.0.0.0:8082->80/tcp
+infra-app   Up 2 minutes   80/tcp
+infra-db    Up 2 minutes   3306/tcp
+
+[3/4] Verificando infraestructura con Ansible...
+
+PLAY [Verificar estado de la infraestructura] **********************************
+
+TASK [Consultar infra-web] *****************************************************
+ok: [localhost]
+
+TASK [Consultar infra-app] *****************************************************
+ok: [localhost]
+
+TASK [Consultar infra-db] ******************************************************
+ok: [localhost]
+
+TASK [Mostrar resumen de infraestructura] **************************************
+ok: [localhost] => {
+    "msg": [
+        "WEB: running - IP: 10.10.0.10",
+        "APP: running - IP: 10.10.0.20",
+        "DB: running - IP: 10.10.0.30"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+[4/4] Verificando conectividad...
+
+PLAY [Probar conectividad entre servicios] *************************************
+
+TASK [Probar WEB hacia APP por HTTP] *******************************************
+ok: [localhost]
+
+TASK [Probar WEB hacia DB por TCP 3306] ****************************************
+ok: [localhost]
+
+TASK [Probar APP hacia DB por TCP 3306] ****************************************
+ok: [localhost]
+
+TASK [Mostrar resultados] ******************************************************
+ok: [localhost] => {
+    "msg": [
+        "WEB -> APP: CONECTADO",
+        "WEB -> DB: CONECTADO",
+        "APP -> DB: CONECTADO"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+========================================
+ VERIFICACIÓN COMPLETADA
+========================================
