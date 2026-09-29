@@ -1,0 +1,20 @@
+[0m[1mdocker_network.infra_network: Refreshing state... [id=cdbf2ff587ffa628422cb18db08a6876e6d94add82e6255e2086c14d45869dc2][0m
+[0m[1mdocker_container.db: Refreshing state... [id=8d34999cd30c746ffd66c7b592d97dda5be4c562f04c34bb9498c3d088a5ab75][0m
+[0m[1mdocker_container.app: Refreshing state... [id=413c482ff4f23c87e13acecfb714045461fcd1aec6f8b598691c8fd086e40018][0m
+[0m[1mdocker_container.web: Refreshing state... [id=e79a676e3b5de0f943586b5dcc99694c24f6cfac4e794ccf1d52ddb7e652e73b][0m
+
+[0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
+
+[0mTerraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+[0mapp_ip = "10.10.0.20"
+db_ip = "10.10.0.30"
+network_id = "cdbf2ff587ffa628422cb18db08a6876e6d94add82e6255e2086c14d45869dc2"
+network_name = "infra-network"
+web_ip = "10.10.0.10"
+web_url = "http://localhost:8082"
