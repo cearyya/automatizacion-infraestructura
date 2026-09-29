@@ -1,0 +1,17 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: infra-web-compose
+    ports:
+      - "8083:80"
+
+  app:
+    image: httpd:alpine
+    container_name: infra-app-compose
+
+  db:
+    image: mariadb:11
+    container_name: infra-db-compose
+    environment:
+      MARIADB_DATABASE: appdb
+      MARIADB_ROOT_PASSWORD: terraform123
