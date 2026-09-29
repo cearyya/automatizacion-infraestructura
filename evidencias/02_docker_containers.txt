@@ -1,0 +1,4 @@
+NAMES       STATUS          PORTS
+infra-web   Up 30 minutes   0.0.0.0:8082->80/tcp
+infra-app   Up 30 minutes   80/tcp
+infra-db    Up 30 minutes   3306/tcp

@@ -1,0 +1,63 @@
+[
+    {
+        "Name": "infra-network",
+        "Id": "1e067c1230459378531965376854859e35abc059279643fced19b0f0cc1cfbf3",
+        "Created": "2026-09-28T19:00:25.123244825-06:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "10.10.0.0/24",
+                    "Gateway": "10.10.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {},
+        "Containers": {
+            "22f9c0503f562f72f9bd05649296770a685848b72d387584cae2885420b6e8be": {
+                "Name": "infra-db",
+                "EndpointID": "f056e9a2e71e3a46b2dc300836c21857c61d4d13933d8744dafc9f51e02667c9",
+                "MacAddress": "3a:27:5d:1d:d5:81",
+                "IPv4Address": "10.10.0.30/24",
+                "IPv6Address": ""
+            },
+            "a5d13cff5f392bfb67e4d49a78d2c7f3549442e1f005592060f718ce2c3336cf": {
+                "Name": "infra-app",
+                "EndpointID": "d402c42b7d79ca710d4cbb1033c4460ee8edfab2068b29ff8b3d3c843e5d6974",
+                "MacAddress": "f2:f8:a0:39:40:50",
+                "IPv4Address": "10.10.0.20/24",
+                "IPv6Address": ""
+            },
+            "c96e8ca603e20fa6952c908792c95481890b87caca7df6482c7b744d0511bcc7": {
+                "Name": "infra-web",
+                "EndpointID": "73c8ba132743d1becb689aff5e1feb68bb1876e64237c695c339af4378ba5fb6",
+                "MacAddress": "fe:0b:1a:50:46:97",
+                "IPv4Address": "10.10.0.10/24",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "10.10.0.0/24": {
+                        "IPsInUse": 6,
+                        "DynamicIPsAvailable": 250
+                    }
+                }
+            }
+        }
+    }
+]

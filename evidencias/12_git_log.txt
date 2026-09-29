@@ -1,0 +1,2 @@
+0c1b76b (HEAD -> master) docs: agregar documentacion del proyecto
+fc51ab3 feat: implementar automatizacion de infraestructura

@@ -1,0 +1,24 @@
+
+PLAY [Verificar estado de la infraestructura] **********************************
+
+TASK [Consultar infra-web] *****************************************************
+ok: [localhost]
+
+TASK [Consultar infra-app] *****************************************************
+ok: [localhost]
+
+TASK [Consultar infra-db] ******************************************************
+ok: [localhost]
+
+TASK [Mostrar resumen de infraestructura] **************************************
+ok: [localhost] => {
+    "msg": [
+        "WEB: running - IP: 10.10.0.10",
+        "APP: running - IP: 10.10.0.20",
+        "DB: running - IP: 10.10.0.30"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

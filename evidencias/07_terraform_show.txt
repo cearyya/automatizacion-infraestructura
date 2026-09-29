@@ -1,0 +1,278 @@
+# docker_container.app:
+resource "docker_container" "app" {
+    attach                                      = false
+    bridge                                      = [90mnull[0m[0m
+    command                                     = [
+        "httpd-foreground",
+    ]
+    container_read_refresh_timeout_milliseconds = 15000
+    cpu_set                                     = [90mnull[0m[0m
+    cpu_shares                                  = 0
+    dns                                         = []
+    dns_opts                                    = []
+    dns_search                                  = []
+    domainname                                  = [90mnull[0m[0m
+    entrypoint                                  = []
+    env                                         = []
+    group_add                                   = []
+    hostname                                    = "a5d13cff5f39"
+    id                                          = "a5d13cff5f392bfb67e4d49a78d2c7f3549442e1f005592060f718ce2c3336cf"
+    image                                       = "httpd:alpine"
+    init                                        = false
+    ipc_mode                                    = "private"
+    log_driver                                  = "json-file"
+    log_opts                                    = {}
+    logs                                        = false
+    max_retry_count                             = 0
+    memory                                      = 0
+    memory_reservation                          = 0
+    memory_swap                                 = 0
+    must_run                                    = true
+    name                                        = "infra-app"
+    network_data                                = [
+        {
+            gateway                   = "10.10.0.1"
+            global_ipv6_address       = [90mnull[0m[0m
+            global_ipv6_prefix_length = 0
+            ip_address                = "10.10.0.20"
+            ip_prefix_length          = 24
+            ipv6_gateway              = [90mnull[0m[0m
+            mac_address               = "f2:f8:a0:39:40:50"
+            network_name              = "infra-network"
+        },
+    ]
+    network_mode                                = "bridge"
+    pid_mode                                    = [90mnull[0m[0m
+    privileged                                  = false
+    publish_all_ports                           = false
+    read_only                                   = false
+    remove_volumes                              = true
+    restart                                     = "no"
+    rm                                          = false
+    runtime                                     = "runc"
+    security_opts                               = []
+    shm_size                                    = 64
+    start                                       = true
+    stdin_open                                  = false
+    stop_signal                                 = "SIGWINCH"
+    stop_timeout                                = 0
+    storage_opts                                = {}
+    sysctls                                     = {}
+    tmpfs                                       = {}
+    tty                                         = false
+    user                                        = [90mnull[0m[0m
+    userns_mode                                 = [90mnull[0m[0m
+    wait                                        = false
+    wait_timeout                                = 60
+    working_dir                                 = "/usr/local/apache2"
+
+    networks_advanced {
+        aliases      = []
+        ipv4_address = "10.10.0.20"
+        ipv6_address = [90mnull[0m[0m
+        mac_address  = [90mnull[0m[0m
+        name         = "infra-network"
+    }
+}
+
+# docker_container.db:
+resource "docker_container" "db" {
+    attach                                      = false
+    bridge                                      = [90mnull[0m[0m
+    command                                     = [
+        "mariadbd",
+    ]
+    container_read_refresh_timeout_milliseconds = 15000
+    cpu_set                                     = [90mnull[0m[0m
+    cpu_shares                                  = 0
+    dns                                         = []
+    dns_opts                                    = []
+    dns_search                                  = []
+    domainname                                  = [90mnull[0m[0m
+    entrypoint                                  = [
+        "docker-entrypoint.sh",
+    ]
+    env                                         = [
+        "MARIADB_DATABASE=appdb",
+        "MARIADB_ROOT_PASSWORD=terraform123",
+    ]
+    group_add                                   = []
+    hostname                                    = "22f9c0503f56"
+    id                                          = "22f9c0503f562f72f9bd05649296770a685848b72d387584cae2885420b6e8be"
+    image                                       = "mariadb:11"
+    init                                        = false
+    ipc_mode                                    = "private"
+    log_driver                                  = "json-file"
+    log_opts                                    = {}
+    logs                                        = false
+    max_retry_count                             = 0
+    memory                                      = 0
+    memory_reservation                          = 0
+    memory_swap                                 = 0
+    must_run                                    = true
+    name                                        = "infra-db"
+    network_data                                = [
+        {
+            gateway                   = "10.10.0.1"
+            global_ipv6_address       = [90mnull[0m[0m
+            global_ipv6_prefix_length = 0
+            ip_address                = "10.10.0.30"
+            ip_prefix_length          = 24
+            ipv6_gateway              = [90mnull[0m[0m
+            mac_address               = "3a:27:5d:1d:d5:81"
+            network_name              = "infra-network"
+        },
+    ]
+    network_mode                                = "bridge"
+    pid_mode                                    = [90mnull[0m[0m
+    privileged                                  = false
+    publish_all_ports                           = false
+    read_only                                   = false
+    remove_volumes                              = true
+    restart                                     = "no"
+    rm                                          = false
+    runtime                                     = "runc"
+    security_opts                               = []
+    shm_size                                    = 64
+    start                                       = true
+    stdin_open                                  = false
+    stop_signal                                 = [90mnull[0m[0m
+    stop_timeout                                = 0
+    storage_opts                                = {}
+    sysctls                                     = {}
+    tmpfs                                       = {}
+    tty                                         = false
+    user                                        = [90mnull[0m[0m
+    userns_mode                                 = [90mnull[0m[0m
+    wait                                        = false
+    wait_timeout                                = 60
+    working_dir                                 = [90mnull[0m[0m
+
+    networks_advanced {
+        aliases      = []
+        ipv4_address = "10.10.0.30"
+        ipv6_address = [90mnull[0m[0m
+        mac_address  = [90mnull[0m[0m
+        name         = "infra-network"
+    }
+}
+
+# docker_container.web:
+resource "docker_container" "web" {
+    attach                                      = false
+    bridge                                      = [90mnull[0m[0m
+    command                                     = [
+        "nginx",
+        "-g",
+        "daemon off;",
+    ]
+    container_read_refresh_timeout_milliseconds = 15000
+    cpu_set                                     = [90mnull[0m[0m
+    cpu_shares                                  = 0
+    dns                                         = []
+    dns_opts                                    = []
+    dns_search                                  = []
+    domainname                                  = [90mnull[0m[0m
+    entrypoint                                  = [
+        "/docker-entrypoint.sh",
+    ]
+    env                                         = []
+    group_add                                   = []
+    hostname                                    = "c96e8ca603e2"
+    id                                          = "c96e8ca603e20fa6952c908792c95481890b87caca7df6482c7b744d0511bcc7"
+    image                                       = "nginx:alpine"
+    init                                        = false
+    ipc_mode                                    = "private"
+    log_driver                                  = "json-file"
+    log_opts                                    = {}
+    logs                                        = false
+    max_retry_count                             = 0
+    memory                                      = 0
+    memory_reservation                          = 0
+    memory_swap                                 = 0
+    must_run                                    = true
+    name                                        = "infra-web"
+    network_data                                = [
+        {
+            gateway                   = "10.10.0.1"
+            global_ipv6_address       = [90mnull[0m[0m
+            global_ipv6_prefix_length = 0
+            ip_address                = "10.10.0.10"
+            ip_prefix_length          = 24
+            ipv6_gateway              = [90mnull[0m[0m
+            mac_address               = "fe:0b:1a:50:46:97"
+            network_name              = "infra-network"
+        },
+    ]
+    network_mode                                = "bridge"
+    pid_mode                                    = [90mnull[0m[0m
+    privileged                                  = false
+    publish_all_ports                           = false
+    read_only                                   = false
+    remove_volumes                              = true
+    restart                                     = "no"
+    rm                                          = false
+    runtime                                     = "runc"
+    security_opts                               = []
+    shm_size                                    = 64
+    start                                       = true
+    stdin_open                                  = false
+    stop_signal                                 = "SIGQUIT"
+    stop_timeout                                = 0
+    storage_opts                                = {}
+    sysctls                                     = {}
+    tmpfs                                       = {}
+    tty                                         = false
+    user                                        = [90mnull[0m[0m
+    userns_mode                                 = [90mnull[0m[0m
+    wait                                        = false
+    wait_timeout                                = 60
+    working_dir                                 = "/"
+
+    networks_advanced {
+        aliases      = []
+        ipv4_address = "10.10.0.10"
+        ipv6_address = [90mnull[0m[0m
+        mac_address  = [90mnull[0m[0m
+        name         = "infra-network"
+    }
+
+    ports {
+        external = 8082
+        internal = 80
+        ip       = "0.0.0.0"
+        protocol = "tcp"
+    }
+}
+
+# docker_network.infra_network:
+resource "docker_network" "infra_network" {
+    attachable   = false
+    driver       = "bridge"
+    id           = "1e067c1230459378531965376854859e35abc059279643fced19b0f0cc1cfbf3"
+    ingress      = false
+    internal     = false
+    ipam_driver  = "default"
+    ipam_options = {}
+    ipv6         = false
+    name         = "infra-network"
+    options      = {}
+    scope        = "local"
+
+    ipam_config {
+        aux_address = {}
+        gateway     = "10.10.0.1"
+        ip_range    = [90mnull[0m[0m
+        subnet      = "10.10.0.0/24"
+    }
+}
+
+
+Outputs:
+
+app_ip = "10.10.0.20"
+db_ip = "10.10.0.30"
+network_id = "1e067c1230459378531965376854859e35abc059279643fced19b0f0cc1cfbf3"
+network_name = "infra-network"
+web_ip = "10.10.0.10"
+web_url = "http://localhost:8082"

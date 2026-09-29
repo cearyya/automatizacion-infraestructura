@@ -1,0 +1,24 @@
+
+PLAY [Probar conectividad entre servicios] *************************************
+
+TASK [Probar WEB hacia APP por HTTP] *******************************************
+ok: [localhost]
+
+TASK [Probar WEB hacia DB por TCP 3306] ****************************************
+ok: [localhost]
+
+TASK [Probar APP hacia DB por TCP 3306] ****************************************
+ok: [localhost]
+
+TASK [Mostrar resultados] ******************************************************
+ok: [localhost] => {
+    "msg": [
+        "WEB -> APP: CONECTADO",
+        "WEB -> DB: CONECTADO",
+        "APP -> DB: CONECTADO"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

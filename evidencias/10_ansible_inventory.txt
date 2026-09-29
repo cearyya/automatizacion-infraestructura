@@ -1,0 +1,11 @@
+@all:
+  |--@ungrouped:
+  |--@control:
+  |  |--localhost
+  |--@infra:
+  |  |--@web:
+  |  |  |--infra-web
+  |  |--@app:
+  |  |  |--infra-app
+  |  |--@db:
+  |  |  |--infra-db

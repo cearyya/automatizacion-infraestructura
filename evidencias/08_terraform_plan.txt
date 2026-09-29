@@ -1,0 +1,9 @@
+[0m[1mdocker_network.infra_network: Refreshing state... [id=1e067c1230459378531965376854859e35abc059279643fced19b0f0cc1cfbf3][0m
+[0m[1mdocker_container.db: Refreshing state... [id=22f9c0503f562f72f9bd05649296770a685848b72d387584cae2885420b6e8be][0m
+[0m[1mdocker_container.app: Refreshing state... [id=a5d13cff5f392bfb67e4d49a78d2c7f3549442e1f005592060f718ce2c3336cf][0m
+[0m[1mdocker_container.web: Refreshing state... [id=c96e8ca603e20fa6952c908792c95481890b87caca7df6482c7b744d0511bcc7][0m
+
+[0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
+
+[0mTerraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

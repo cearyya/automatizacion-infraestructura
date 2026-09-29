@@ -1,0 +1,3 @@
+-rwxrwxr-x 1 root root 539 sep 28 18:54 scripts/deploy.sh
+-rwxrwxr-x 1 root root 480 sep 28 18:58 scripts/destroy.sh
+-rwxrwxr-x 1 root root 854 sep 28 18:57 scripts/verify.sh
